@@ -16,3 +16,4 @@ yapf>=0.12.0
 pytest-randomly>=1.1
 pyftpdlib
 sphinxcontrib-seqdiag
+pillow>=10.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
