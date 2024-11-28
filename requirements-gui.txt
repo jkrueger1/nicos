@@ -16,3 +16,4 @@ QScintilla>=2.12;sys_platform=='win32'
 PyQt6>=6.3.1;sys_platform=='darwin'
 PyQt6-WebEngine>=6.3.1;sys_platform=='darwin'
 PyQt6-QScintilla>=2.13;sys_platform=='darwin'
+requests>=2.32.0 # not directly required, pinned by Snyk to avoid a vulnerability
