@@ -19,3 +19,4 @@ PyQt6-Qt6>=6.7,<6.8;sys_platform=='darwin'
 PyQt6-WebEngine>=6.7,<6.8;sys_platform=='darwin'
 PyQt6-WebEngine-Qt6>=6.7,<6.8;sys_platform=='darwin'
 PyQt6-QScintilla>=2.13;sys_platform=='darwin'
+requests>=2.32.4 # not directly required, pinned by Snyk to avoid a vulnerability
