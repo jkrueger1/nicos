@@ -2,3 +2,4 @@
 PyQt5
 PyQt5-sip
 PyQt5-tools
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
