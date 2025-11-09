@@ -61,6 +61,10 @@ class GarfieldMagnet(CanDisable, CalibratedMagnet):
                                 mandatory=False),
     }
 
+    @property
+    def _symmetry(self):
+        return self._attached_symmetry.read(0)
+
     def doRead(self, maxage=0):
         currentreadback = self._attached_currentreadback
         if currentreadback is not None:
@@ -84,12 +88,11 @@ class GarfieldMagnet(CanDisable, CalibratedMagnet):
         return newlimits
 
     def doReadCalibration(self):
-        symval = self._attached_symmetry.read()
-        return self.calibrationtable.get(symval, (0.0, 0.0, 0.0, 0.0, 0.0))
+        return self.calibrationtable.get(
+            self._symmetry, (0.0, 0.0, 0.0, 0.0, 0.0))
 
     def doWriteCalibration(self, cal):
-        symval = self._attached_symmetry.read()
-        self.calibrationtable[symval] = cal
+        self.calibrationtable[self._symmetry] = cal
 
     def doReset(self):
         self.disable()
