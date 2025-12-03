@@ -22,13 +22,10 @@
 # *****************************************************************************
 import numpy as np
 from scipy.interpolate import interp1d
-
-from nicos import session
-from nicos.core import Device, IsController
+from nicos.core import Device, IsController, ConfigurationError
 from nicos.core.constants import SIMULATION
 from nicos.core.device import Moveable
 from nicos.core.params import Attach, Param, listof
-
 
 class EIS2TController(IsController, Device):
     """
@@ -52,10 +49,9 @@ class EIS2TController(IsController, Device):
 
     def doInit(self, mode):
         """
-        Initialise EIS2TController taking the energy and s2t arrays, and the padding into account
+        Initialise EIS2TController taking the energy and s2t arrays, and the
+        padding into account. The energy limits are read from
         """
-
-        # Load energy dependent limits for the wall collision detection
         if mode != SIMULATION:
             try:
                 values = np.loadtxt(self.file, delimiter=',')
@@ -64,6 +60,11 @@ class EIS2TController(IsController, Device):
             except (FileNotFoundError, OSError):
                 session.log.error('Limits file "%s" not found! Reverting to previous values', self.file)
 
+            self.ei_values = values[0]
+            self.s2t_values = values[1]
+        self._interp()
+
+    def _interp(self):
         self._interpolate_s2t = interp1d(self.ei_values, np.asarray(self.s2t_values)-abs(self.padding))
 
     def isAdevTargetAllowed(self, adev, adevtarget):
