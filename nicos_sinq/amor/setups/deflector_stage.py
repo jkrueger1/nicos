@@ -2,6 +2,10 @@ description = 'Lift and pitch of deflector and flight tube'
 
 display_order = 40
 
+includes = [
+    'base', 'diaphragm2', 'sample_stage', 'detector_stage'
+    ]
+
 pvprefix = 'SQ:AMOR:masterMacs1:'
 
 devices = dict(

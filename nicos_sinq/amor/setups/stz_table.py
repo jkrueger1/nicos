@@ -1,9 +1,10 @@
 description = 'Sample table with stz'
 
-display_order = 51
+display_order = 52
 
-pvprefix = 'SQ:AMOR:mmac1:'
+pvprefix = 'SQ:AMOR:masterMacs1:'
 
+includes = ['base', 'sample_stage']
 excludes = ['smz_table']
 
 devices = dict(
