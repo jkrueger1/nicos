@@ -12,7 +12,7 @@ slackclient>=2.3.1
 sshtunnel>=0.4.0
 requests>=2.26.0
 PyTango>=9.0.0;sys_platform!='win32' and sys_platform!='darwin'
-Pillow>=4.0.0
+Pillow>=10.0.1
 Markdown>=2.6.9
 pamela>=0.3.0
 systemd-python>=230;sys_platform!='win32' and sys_platform!='darwin'
