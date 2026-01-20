@@ -4,7 +4,7 @@ display_order = 15
 
 sysconfig = dict(datasinks = ['jbi_liveview', 'FileWriterControl'],)
 
-#sysconfig = dict(datasinks = ['jbi_liveview', 'synchronize_daq'],)
+includes = ['chopper_sim']
 
 sumpv = 'SQ:AMOR:sumi:'
 
