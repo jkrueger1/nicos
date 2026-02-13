@@ -26,10 +26,10 @@
 This module contains specific EPICS devices.
 """
 from nicos import session
-from nicos.core import Device, Param, pvname, status, usermethod
+from nicos.core import Device, Param, pvname, usermethod
 from nicos.core.constants import SIMULATION
 from nicos.core.errors import AccessError
-from nicos.core.params import Override, anytype, dictof, none_or
+from nicos.core.params import anytype, dictof
 from nicos.devices.abstract import MappedMoveable
 from nicos.devices.epics.pva.epics_devices import EpicsAnalogMoveable
 from nicos.devices.epics.pyepics import EpicsDevice
